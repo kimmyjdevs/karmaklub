@@ -7,8 +7,8 @@ import { formatPrice } from '@/lib/utils';
 import ShopFilter from './ShopFilter';
 
 export const metadata = {
-  title: 'Shop',
-  description: 'Limited run Karma Club merch — shirts, hats, stickers, and drop items.',
+  title: 'Merch Shop — Karma Club | Underground DJ Apparel',
+  description: "Shop limited run Karma Club merch — underground DJ tees, hats, stickers, and special drops. AUS shipping. Once it's gone, it's gone.",
 };
 
 const CATEGORIES = ['ALL', 'SHIRTS', 'HATS', 'STICKERS', 'DROPS'];

@@ -31,6 +31,40 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+function buildEventJsonLd(event: import('@/db/schema').Event) {
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    name: event.title,
+    startDate: new Date(event.date).toISOString(),
+    description: event.shortDescription ?? `Underground DJ event by Karma Club in Brisbane.`,
+    image: event.coverImage ?? 'https://karmaklub.netlify.app/og-default.jpg',
+    eventStatus: 'https://schema.org/EventScheduled',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    location: {
+      '@type': 'Place',
+      name: event.venue,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: event.suburb,
+        addressRegion: 'QLD',
+        addressCountry: 'AU',
+      },
+    },
+    organizer: {
+      '@type': 'Organization',
+      name: 'Karma Club',
+      url: 'https://karmaklub.netlify.app',
+    },
+    offers: event.yourKindUrl
+      ? { '@type': 'Offer', url: event.yourKindUrl, availability: 'https://schema.org/InStock' }
+      : event.ticketStatus === 'FREE'
+      ? { '@type': 'Offer', price: '0', priceCurrency: 'AUD', availability: 'https://schema.org/InStock' }
+      : { '@type': 'Offer', availability: 'https://schema.org/InStock' },
+  };
+  return JSON.stringify(schema);
+}
+
 export default async function EventPage({ params }: Props) {
   const [event] = await Promise.resolve()
     .then(() => db.select().from(events).where(eq(events.slug, params.slug)).limit(1))
@@ -42,6 +76,10 @@ export default async function EventPage({ params }: Props) {
 
   return (
     <div className="pt-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: buildEventJsonLd(event) }}
+      />
       {/* Hero image */}
       <div className="relative h-[50vh] md:h-[60vh] bg-card">
         {event.coverImage ? (

@@ -1,5 +1,12 @@
+import type { Metadata } from 'next';
 import { db } from '@/db';
 import { events, products } from '@/db/schema';
+
+export const metadata: Metadata = {
+  title: 'Karma Club — Drum & Bass + Techno Events Brisbane',
+  description:
+    "Karma Club is Brisbane's underground Drum & Bass and Techno events community. Open deck nights, pop-up events, and limited merch drops. Est. 2018.",
+};
 import { desc, eq, gte, and } from 'drizzle-orm';
 import HeroSection from '@/components/home/HeroSection';
 import PhotoMarquee from '@/components/home/PhotoMarquee';

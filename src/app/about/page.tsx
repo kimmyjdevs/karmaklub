@@ -3,15 +3,14 @@ import { events } from '@/db/schema';
 import { count } from 'drizzle-orm';
 
 export const metadata = {
-  title: 'About',
+  title: 'About Karma Club | Brisbane Underground Music Community Since 2018',
   description:
-    'Karma Club started in 2018 as a grassroots movement to give underground DJs real stage time. Drum & Bass, Techno, Bass Music — community first.',
+    "Karma Club is Brisbane's underground DJ community — connecting Drum & Bass and Techno DJs with crowds who care since 2018.",
 };
 
 export default async function AboutPage() {
-  const [eventCount] = await db
-    .select({ count: count() })
-    .from(events)
+  const [eventCount] = await Promise.resolve()
+    .then(() => db.select({ count: count() }).from(events))
     .catch(() => [{ count: 0 }]);
 
   return (
@@ -74,7 +73,7 @@ export default async function AboutPage() {
               },
               {
                 title: 'Merch Drops',
-                body: 'Limited run shirts, hats, stickers, and random collabs. Wear the scene. Every drop is small batch — once it&apos;s gone, it&apos;s gone.',
+                body: "Limited run shirts, hats, stickers, and random collabs. Wear the scene. Every drop is small batch — once it's gone, it's gone.",
               },
             ].map((card) => (
               <div key={card.title} className="bg-surface p-8 fade-in-up">

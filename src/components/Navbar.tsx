@@ -51,7 +51,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logo-white.png"
-              alt="Karma Klub"
+              alt="Karma Club"
               width={48}
               height={48}
               className="w-12 h-12 object-contain"

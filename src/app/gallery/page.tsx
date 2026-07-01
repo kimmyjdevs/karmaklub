@@ -5,8 +5,8 @@ import GalleryGrid from './GalleryGrid';
 import StaticGalleryGrid from './StaticGalleryGrid';
 
 export const metadata = {
-  title: 'Gallery',
-  description: 'Photos from Karma Club events — Open Deck Nights, Pop-Ups, and community gatherings across Brisbane.',
+  title: 'Event Photos | Karma Club Underground Events Brisbane',
+  description: "Photos from Karma Club's underground events in Brisbane — Drum & Bass, Techno, and open deck nights since 2018.",
 };
 
 export default async function GalleryPage({

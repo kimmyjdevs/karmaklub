@@ -39,5 +39,8 @@ next-env.d.ts
 # drizzle
 drizzle/
 
+# netlify build cache
+.netlify/
+
 # original assets (source files, not optimised for web)
 /Images/

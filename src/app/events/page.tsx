@@ -9,8 +9,8 @@ import TicketBadge from '@/components/ui/TicketBadge';
 import EventsFilter from './EventsFilter';
 
 export const metadata = {
-  title: 'Events',
-  description: 'Upcoming and past Karma Club events — Open Deck Nights, Pop-Ups, and Headline shows across Brisbane.',
+  title: 'Upcoming D&B & Techno Events Brisbane | Karma Club',
+  description: 'Find upcoming Karma Club events in Brisbane — Open Deck nights, D&B pop-ups, and headline underground shows. Free and ticketed events.',
 };
 
 export default async function EventsPage({

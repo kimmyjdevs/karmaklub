@@ -17,6 +17,11 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
       </div>
 
+      {/* H1 */}
+      <h1 className="relative z-10 font-display font-bold text-6xl md:text-8xl lg:text-9xl uppercase tracking-widest text-white leading-none mb-6 fade-in-up">
+        Karma<br />Club
+      </h1>
+
       {/* Tagline */}
       <p
         className="relative z-10 font-mono text-xs md:text-sm uppercase tracking-[0.4em] text-text-secondary mb-10 fade-in-up"

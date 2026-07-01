@@ -1,8 +1,8 @@
 import ContactForm from './ContactForm';
 
 export const metadata = {
-  title: 'Contact',
-  description: 'Get in touch with Karma Club — general enquiries, DJ submissions, event collaborations, or merch support.',
+  title: 'Contact Karma Club | DJ Bookings & Enquiries Brisbane',
+  description: 'Book a DJ, collab on an event, or get in touch with Karma Club Brisbane. We also take DJ submissions for open deck nights.',
 };
 
 export default function ContactPage() {
