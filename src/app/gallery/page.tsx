@@ -2,6 +2,7 @@ import { db } from '@/db';
 import { gallery } from '@/db/schema';
 import { desc } from 'drizzle-orm';
 import GalleryGrid from './GalleryGrid';
+import StaticGalleryGrid from './StaticGalleryGrid';
 
 export const metadata = {
   title: 'Gallery',
@@ -76,9 +77,7 @@ export default async function GalleryPage({
       <section className="px-6 py-12">
         <div className="max-w-7xl mx-auto">
           {filtered.length === 0 ? (
-            <div className="border border-border py-24 text-center">
-              <p className="font-mono text-text-secondary text-sm">Photos coming soon.</p>
-            </div>
+            <StaticGalleryGrid />
           ) : (
             <GalleryGrid photos={filtered} />
           )}

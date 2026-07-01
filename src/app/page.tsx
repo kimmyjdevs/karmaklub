@@ -2,6 +2,7 @@ import { db } from '@/db';
 import { events, products } from '@/db/schema';
 import { desc, eq, gte, and } from 'drizzle-orm';
 import HeroSection from '@/components/home/HeroSection';
+import PhotoMarquee from '@/components/home/PhotoMarquee';
 import MissionStrip from '@/components/home/MissionStrip';
 import EventsPreview from '@/components/home/EventsPreview';
 import MerchPreview from '@/components/home/MerchPreview';
@@ -27,6 +28,7 @@ export default async function HomePage() {
   return (
     <>
       <HeroSection />
+      <PhotoMarquee />
       <MissionStrip />
       <EventsPreview events={upcomingEvents} />
       <MerchPreview products={featuredProducts} />

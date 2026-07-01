@@ -38,3 +38,6 @@ next-env.d.ts
 
 # drizzle
 drizzle/
+
+# original assets (source files, not optimised for web)
+/Images/

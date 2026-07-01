@@ -29,6 +29,8 @@ const config: Config = {
       animation: {
         'fade-in': 'fadeIn 0.4s ease-out forwards',
         'underline-in': 'underlineIn 0.4s ease-out forwards',
+        'marquee': 'marquee var(--duration) linear infinite',
+        'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -38,6 +40,14 @@ const config: Config = {
         underlineIn: {
           '0%': { transform: 'scaleX(0)', transformOrigin: 'left' },
           '100%': { transform: 'scaleX(1)', transformOrigin: 'left' },
+        },
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(calc(-100% - var(--gap)))' },
+        },
+        'marquee-vertical': {
+          from: { transform: 'translateY(0)' },
+          to: { transform: 'translateY(calc(-100% - var(--gap)))' },
         },
       },
     },
