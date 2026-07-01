@@ -27,10 +27,9 @@ export default async function ShopPage({
   const cat = searchParams.cat?.toUpperCase() ?? 'ALL';
   const dbCategory = categoryMap[cat];
 
-  const allProducts = await db
-    .select()
-    .from(products)
-    .where(eq(products.published, true))
+  const allProducts = await Promise.resolve()
+    .then(() => db.select().from(products)
+      .where(eq(products.published, true)))
     .catch(() => []);
 
   const displayed = dbCategory

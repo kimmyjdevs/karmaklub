@@ -14,10 +14,8 @@ export default async function GalleryPage({
 }: {
   searchParams: { event?: string };
 }) {
-  const photos = await db
-    .select()
-    .from(gallery)
-    .orderBy(desc(gallery.createdAt))
+  const photos = await Promise.resolve()
+    .then(() => db.select().from(gallery).orderBy(desc(gallery.createdAt)))
     .catch(() => []);
 
   const events = Array.from(

@@ -14,11 +14,8 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const [event] = await db
-    .select()
-    .from(events)
-    .where(eq(events.slug, params.slug))
-    .limit(1)
+  const [event] = await Promise.resolve()
+    .then(() => db.select().from(events).where(eq(events.slug, params.slug)).limit(1))
     .catch(() => []);
 
   if (!event) return { title: 'Event Not Found' };
@@ -35,11 +32,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function EventPage({ params }: Props) {
-  const [event] = await db
-    .select()
-    .from(events)
-    .where(eq(events.slug, params.slug))
-    .limit(1)
+  const [event] = await Promise.resolve()
+    .then(() => db.select().from(events).where(eq(events.slug, params.slug)).limit(1))
     .catch(() => []);
 
   if (!event || !event.published) notFound();

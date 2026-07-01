@@ -10,11 +10,8 @@ import type { Metadata } from 'next';
 type Props = { params: { slug: string } };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const [product] = await db
-    .select()
-    .from(products)
-    .where(eq(products.slug, params.slug))
-    .limit(1)
+  const [product] = await Promise.resolve()
+    .then(() => db.select().from(products).where(eq(products.slug, params.slug)).limit(1))
     .catch(() => []);
 
   if (!product) return { title: 'Product Not Found' };
@@ -30,11 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ProductPage({ params }: Props) {
-  const [product] = await db
-    .select()
-    .from(products)
-    .where(eq(products.slug, params.slug))
-    .limit(1)
+  const [product] = await Promise.resolve()
+    .then(() => db.select().from(products).where(eq(products.slug, params.slug)).limit(1))
     .catch(() => []);
 
   if (!product || !product.published) notFound();

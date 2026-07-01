@@ -21,11 +21,10 @@ export default async function EventsPage({
   const filter = searchParams.filter ?? 'upcoming';
   const now = new Date();
 
-  const allEvents = await db
-    .select()
-    .from(events)
-    .where(eq(events.published, true))
-    .orderBy(desc(events.date))
+  const allEvents = await Promise.resolve()
+    .then(() => db.select().from(events)
+      .where(eq(events.published, true))
+      .orderBy(desc(events.date)))
     .catch(() => []);
 
   const upcoming = allEvents.filter((e) => new Date(e.date) >= now);

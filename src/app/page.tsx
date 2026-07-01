@@ -9,20 +9,18 @@ import MerchPreview from '@/components/home/MerchPreview';
 import CommunityStrip from '@/components/home/CommunityStrip';
 
 export default async function HomePage() {
-  const upcomingEvents = await db
-    .select()
-    .from(events)
-    .where(and(eq(events.published, true), gte(events.date, new Date())))
-    .orderBy(events.date)
-    .limit(3)
+  const upcomingEvents = await Promise.resolve()
+    .then(() => db.select().from(events)
+      .where(and(eq(events.published, true), gte(events.date, new Date())))
+      .orderBy(events.date)
+      .limit(3))
     .catch(() => []);
 
-  const featuredProducts = await db
-    .select()
-    .from(products)
-    .where(and(eq(products.published, true), eq(products.isFeatured, true)))
-    .orderBy(desc(products.createdAt))
-    .limit(4)
+  const featuredProducts = await Promise.resolve()
+    .then(() => db.select().from(products)
+      .where(and(eq(products.published, true), eq(products.isFeatured, true)))
+      .orderBy(desc(products.createdAt))
+      .limit(4))
     .catch(() => []);
 
   return (
