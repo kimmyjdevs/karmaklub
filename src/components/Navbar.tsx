@@ -54,7 +54,7 @@ export default function Navbar() {
               alt="Karma Klub"
               width={44}
               height={44}
-              className="w-11 h-11 object-contain"
+              className="w-11 h-11 object-contain mix-blend-screen"
               priority
             />
           </Link>
