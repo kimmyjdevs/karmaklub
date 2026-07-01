@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useCart } from './cart/CartProvider';
 import CartDrawer from './cart/CartDrawer';
@@ -47,11 +48,15 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
-          <Link
-            href="/"
-            className="font-display font-bold text-xl uppercase tracking-widest text-white"
-          >
-            Karma Club
+          <Link href="/" className="flex items-center shrink-0">
+            <Image
+              src="/logo.png"
+              alt="Karma Klub"
+              width={44}
+              height={44}
+              className="w-11 h-11 object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}
