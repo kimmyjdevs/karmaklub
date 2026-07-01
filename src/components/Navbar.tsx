@@ -50,11 +50,11 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
             <Image
-              src="/logo.png"
+              src="/logo-white.png"
               alt="Karma Klub"
-              width={44}
-              height={44}
-              className="w-11 h-11 object-contain mix-blend-screen"
+              width={48}
+              height={48}
+              className="w-12 h-12 object-contain"
               priority
             />
           </Link>
